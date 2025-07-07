@@ -1,6 +1,8 @@
+// ici le controller qui va permettre de gérer notre CRUD concernant les jeux de société/modèle Game
 const Game = require('../models/game');
 const { validationResult } = require('express-validator');
 
+// ici qui correspond à un GET pour récupérer l'index de tous les jeux. C'est le def index d'un projet ruby on rails
 exports.getAllGames = async (req, res) => {
   try {
     const games = await Game.find();
@@ -9,7 +11,7 @@ exports.getAllGames = async (req, res) => {
     res.status(500).json({ message: 'Error fetching games', error });
   }
 };
-
+// ici, le GET pour récupérer une entrée spécifique par ID. C'est le def show d'un projet ruby on rails
 exports.getGameById = async (req, res) => {
   const gameId = req.params.id;
   try {
@@ -22,7 +24,7 @@ exports.getGameById = async (req, res) => {
     res.status(500).json({ message: 'Error fetching game', error });
   }
 };
-
+// POST pour créer un nouveau game/jeu. C'est le def create d'un projet ruby on rails
 exports.createGame = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -39,6 +41,7 @@ exports.createGame = async (req, res) => {
   }
 };
 
+// PUT pour mettre à jour un jeu existant. C'est le def update d'un projet ruby on rails
 exports.updateGame = async (req, res) => {
   const gameId = req.params.id;
   const errors = validationResult(req);
@@ -57,6 +60,8 @@ exports.updateGame = async (req, res) => {
     res.status(500).json({ message: 'Error updating game', error });
   }
 };
+
+// DELETE pour supprimer un jeu existant. C'est le def destroy d'un projet ruby on rails
 exports.deleteGame = async (req, res) => {
   const gameId = req.params.id;
   try {
