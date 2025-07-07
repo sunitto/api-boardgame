@@ -8,7 +8,7 @@ exports.getAllGames = async (req, res) => {
     const games = await Game.find();
     res.status(200).json(games);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching games', error });
+    res.status(500).json({ message: "Erreur lors de la récupération des fiches de jeux", error });
   }
 };
 // ici, le GET pour récupérer une entrée spécifique par ID. C'est le def show d'un projet ruby on rails
@@ -17,11 +17,11 @@ exports.getGameById = async (req, res) => {
   try {
     const game = await Game.findById(gameId);
     if (!game) {
-      return res.status(404).json({ message: 'Game not found' });
+      return res.status(404).json({ message: "Fiche de jeu non trouvée" });
     }
     res.status(200).json(game);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching game', error });
+    res.status(500).json({ message: "Erreur lors de la récupétation des fiches de jeux", error });
   }
 };
 // POST pour créer un nouveau game/jeu. C'est le def create d'un projet ruby on rails
@@ -37,7 +37,7 @@ exports.createGame = async (req, res) => {
     await newGame.save();
     res.status(201).json(newGame);
   } catch (error) {
-    res.status(500).json({ message: 'Error creating game', error });
+    res.status(500).json({ message: "Erreur de création de la fiche jeu", error });
   }
 };
 
@@ -53,24 +53,24 @@ exports.updateGame = async (req, res) => {
   try {
     const updatedGame = await Game.findByIdAndUpdate(gameId, gameData, { new: true });
     if (!updatedGame) {
-      return res.status(404).json({ message: 'Game not found' });
+      return res.status(404).json({ message: "Fiche de jeu non trouvée" });
     }
     res.status(200).json(updatedGame);
   } catch (error) {
-    res.status(500).json({ message: 'Error updating game', error });
+    res.status(500).json({ message: "Erreur de mise à jour de la fiche de jeu", error });
   }
 };
 
-// DELETE pour supprimer un jeu existant. C'est le def destroy d'un projet ruby on rails
+// DELETE pour supprimer un jeu. C'est le def destroy d'un projet ruby on rails
 exports.deleteGame = async (req, res) => {
   const gameId = req.params.id;
   try {
     const deletedGame = await Game.findByIdAndDelete(gameId);
     if (!deletedGame) {
-      return res.status(404).json({ message: 'Game not found' });
+      return res.status(404).json({ message: "Fiche de jeu non trouvée" });
     }
-    res.status(200).json({ message: 'Game deleted successfully' });
+    res.status(200).json({ message: "Fiche de jeu supprimée avec succès" });
   } catch (error) {
-    res.status(500).json({ message: 'Error deleting game', error });
+    res.status(500).json({ message: "Erreur lors de la suppression de la fiche de jeu", error });
   }
 };

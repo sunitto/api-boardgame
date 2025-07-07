@@ -12,11 +12,11 @@ app.use('/api-boardgame/games', gameRoutes); // route principale pour les jeux
 // Connexion à la base de données MongoDB
 mongoose.connect(MONGODB_URI)
 .then(() => {
-  console.log('Connected to MongoDB');
+  console.log("Connecté à MongoDB");
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 })
 .catch(err => {
-  console.error('Error connecting to MongoDB:', err);
+  console.error("Erreur de connection à MongoDB", err);
 });
