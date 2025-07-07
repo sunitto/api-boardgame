@@ -1,5 +1,15 @@
 API boardgame a pour but de pouvoir créer des fiches de jeux de société.
-Chaque fiche est composée d'un titre, d'une description du produit, d'une image, nombre de joueureuse(s) minimum et maximum, temps de jeu exprimé en minutes, une catégorie, les mécaniques principales, un age minimum d'utilisation et un prix conseillé.
+Chaque fiche est composée:
+-d'un titre
+-d'une description du produit
+-d'une image
+-nombre de joueureuse(s) minimum
+-nombre de joueureuse(s) maximum
+-durée de jeu exprimé en minutes
+-une catégorie
+-les mécaniques principales
+-un age minimum d'utilisation
+-un prix conseillé
 
 Détails du projet:
 
