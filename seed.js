@@ -106,7 +106,7 @@ const gamesData = [
   }
 ];
 
-const MONGODB_URI = 'mongodb://localhost:27017/boardgame';
+const MONGODB_URI = 'mongodb://localhost:27017/boardgame_db';
 async function seedDB() {
   try {
     // Connection à la base de données MongoDB
